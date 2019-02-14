@@ -1,0 +1,29 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath "org.apache.meecrowave:meecrowave-gradle-plugin:1.2.6"
+    }
+}
+
+plugins {
+    id 'java'
+}
+
+apply plugin: "org.apache.microwave.microwave"
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_11
+    targetCompatibility = JavaVersion.VERSION_11
+}
+
+dependencies {
+    compile("org.apache.meecrowave:meecrowave-core:1.2.6")
+    compile("org.apache.meecrowave:meecrowave-specs-api:1.2.6")
+}
+
+meecrowave {
+    httpPort = 9090
+    // most of the meecrowave core configuration
+}
